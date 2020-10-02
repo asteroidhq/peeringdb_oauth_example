@@ -18,6 +18,8 @@ Based on Slide 9 of the above preso
 The library also generates a pseudo random code to use as the state for later comparison.  You should store that somewhere, this example suggests a Flask session.
 
 ```
+from peeringdb_oauth import PeeringdbAuth
+
 @app.route('/login/peeringdb')
 def auth_login_peeringdb():
     session.clear()
