@@ -2,6 +2,8 @@ import requests
 import urllib.parse
 import random
 import string
+import configparser
+
 
 class PeeringdbAuth(object):
     """
@@ -9,9 +11,11 @@ class PeeringdbAuth(object):
     """
 
     def __init__(self):
-        self.OAUTH_CLIENT_KEY = ""
-        self.OAUTH_CLIENT_SEC = ""
-        self.redirect_to = "https://localhost:5000/auth/login/peeringdb/callback"
+        config = configparser.ConfigParser()
+        config.read('/etc/peeringdb_oauth.ini')
+        self.OAUTH_CLIENT_KEY = config["peeringdb_oauth"]["oauth_client_key"]
+        self.OAUTH_CLIENT_SEC = config["peeringdb_oauth"]["oauth_client_sec"]
+        self.redirect_to = config["peeringdb_oauth"]["redirect_to"]
         return
 
     def calculate_redirect_url(self):
