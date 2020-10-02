@@ -9,8 +9,8 @@ class PeeringdbAuth(object):
     """
 
     def __init__(self):
-        self.OAUTH_CLIENT_KEY = "PETL5TEEPnQHoqNwO1WMmNwj4smI04n6OqFoPRPC"
-        self.OAUTH_CLIENT_SEC = "9ftHbaWZrTNoSJpM4O4YCrMY42mLSGREOv2caVk6pFM6ELaNNIReghTJoWgWeq6OwEfRxXrhbmfliGat0eHqgS54MbNvvlYnfd00eyZonMdAsK3g79H1gfNGWb3rHhNS"
+        self.OAUTH_CLIENT_KEY = ""
+        self.OAUTH_CLIENT_SEC = ""
         self.redirect_to = "https://localhost:5000/auth/login/peeringdb/callback"
         return
 
