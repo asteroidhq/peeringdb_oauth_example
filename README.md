@@ -35,7 +35,7 @@ Based on slide 12 of the above preso. We swap this access code for a token we ca
 @app.route('/login/peeringdb/callback')
 def auth_login_peeringdb_callback():
     if session['login_oauth_state'] != request.args.get('state'):
-        abort(404, description="The OAuth state does not match")
+        abort(400, description="The OAuth state does not match")
     peering_db_code = request.args.get('code')
     p = PeeringdbAuth()
     try:
