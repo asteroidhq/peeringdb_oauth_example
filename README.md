@@ -9,7 +9,7 @@ If you use Flask you might use it in the way described in this README.  Note if 
 ## Step 1: Register your app on PeeringDB
 
 Example on Slide 7 of the above preso (remember the redirect URIs need to be HTTPS)
-Set the client ID and secret in peeringdb_auth/peeringdb_auth.py
+Copy the file etc/peeringdb_oauth.ini to /etc/peeringdb_oauth.ini and copy/paste the client ID and secret in that the PeeringDB website provides you when you register your app.
 
 ## Step 2: Make your endpoint which redirects users to the PeeringDB Auth service:
 
