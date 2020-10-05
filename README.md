@@ -51,3 +51,15 @@ def auth_login_peeringdb_callback():
 
 ## Step 4: Use the access token to get the user information to log in the user to your app
 
+Based on slide 16 and 20 of the above preso.  Use the token you got from step 3 of this process to get a user object.
+
+```
+    p = PeeringdbAuth()
+    try:
+        peeringdb_user = p.get_user_information_from_token(peeringdb_access_token)
+    except RuntimeError as err:
+        raise HTTPException(status_code=404, detail="{}".format(err))
+
+    # peeringdb_user is a hash that contains the user object as decribed in slide 20
+    print("User email address is {}".format(peeringdb_user["email"]))
+````
