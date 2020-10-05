@@ -53,6 +53,8 @@ def auth_login_peeringdb_callback():
 
 Based on slide 16 and 20 of the above preso.  Use the token you got from step 3 of this process to get a user object.
 
+By default we will raise an exception if a user email address is not verified, you can stop that behaviour by sending `require_verified=False` in your call of the get_user_information_from_token function.
+
 ```
     p = PeeringdbAuth()
     try:
