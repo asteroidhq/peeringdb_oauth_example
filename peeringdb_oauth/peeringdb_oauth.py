@@ -43,4 +43,16 @@ class PeeringdbAuth(object):
             print(req.request.body)
             print(req.json())
             raise RuntimeError("PeeringDB returned fault {}".format(req.status_code))
-        
+
+    def get_user_information_from_token(self, auth_token, require_verified=True):
+        req = requests.get("https://auth.peeringdb.com/profile/v1", headers={'Authorization': "Bearer {}".format(auth_token)})
+        if req.status_code == 200:
+            user_obj = req.json()
+        else:
+            raise RuntimeError("PeeringDB returend fault {}".format(req.status_code))
+
+        if require_verified == True:
+            if not user_obj["verified_user"] == True and user_obj["verified_email"] == True:
+                raise RuntimeError("User is in the peeringdb system but email address not verified")
+
+        return user_obj
